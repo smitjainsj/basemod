@@ -2,37 +2,24 @@ class basemod::params {
 
 ######### NTP params
 
-$ntp_package            = 'ntp'
-
-########## MySQL Params
-$mysql_package		= 'mysql-server'
-$host                   = 'localhost'
-$icinga2_package	= 'icinga2'
-$icinga2_service	= 'icinga2'
-$git_package		= 'git'
-$icinga2_dbname         = 'icinga'
-$icinga2_dbuser         = $icinga2_dbname
-$icinga2_dbpass         = $icinga2_dbname
-$icinga2_ido		= 'icinga2-ido-mysql'
-
+$zone = 'Asia'
+$city = 'Kolkata'
 
 
 case $::operatingsystem {
 
   'CentOS','Redhat': {
-
-      $ntp_service    = 'ntpd'
-      $ssh_service    = 'sshd'
-      $mysql_service  = 'mysqld'
+	
+      $ntp_package    = 'ntpd'	
+      $ntp_service    =  $ntp_package 
 	
 
        }
 
   'Debian', 'Ubuntu': {
 
-	$ntp_service = 'ntp'
-	$ssh_service = 'ssh'
-	$mysql_service  = 'mysql'
+	$ntp_package = 'ntp'
+	$ntp_service = $ntp_package
 
   	}
   default: {

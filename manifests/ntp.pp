@@ -1,10 +1,6 @@
-class basemod::ntp (
-  $ntp_package = $basemod::params::ntp_package,
-  $zone = 'Asia',
-  $city = 'Kolkata',    
-) inherits basemod::params
-
+class basemod::ntp inherits basemod::params
  {
+
 	package { $ntp_package: ensure => installed, }
 
 	service {$ntp_service:
